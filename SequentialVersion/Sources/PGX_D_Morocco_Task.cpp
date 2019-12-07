@@ -8,11 +8,14 @@
 
 int main() {
 	std::shared_ptr<graph<uint64_t> > gr(new graph<uint64_t>());
-	graph_loader gr_loader;
-	graph_algorithms gr_algorithms;
-	std::string input_file("C:\\Users\\Amin\\source\\repos\\PGX_D_Morocco_Task\\PGX_D_Morocco_Task\\Sources\\G7_notFully_notWeakly.txt");
-	//std::ifstream value_in("C:\\Users\\Amin\\source\\repos\\PGX_D_Morocco_Task\\PGX_D_Morocco_Task\\Sources\\G1_value_in.txt");
+	graph_loader 		gr_loader;
+	graph_algorithms 	gr_algorithms;
+	std::string 		input_file("G1_notFully_notWeakly.txt");
+	//std::ifstream 	value_in("G1_value_in.txt");
+	
 	gr_loader.template load_graph<uint64_t>(gr, input_file);
+	
+
 	/*if (!value_in.is_open())
 		return 0;
 	std::string line;
@@ -24,6 +27,7 @@ int main() {
 	}
 	std::cout << "Exporting graph properties to string:\n\n";
 	std::cout << gr->export_node_property_to_string()<<"***********\n";*/
+	
 	std::cout << "\nis fully connected ?\n";
 	if (gr_algorithms.is_fully_connected(gr))
 		std::cout << "Yes\n";
@@ -35,7 +39,6 @@ int main() {
 		std::cout << "Yes\n";
 	else
 		std::cout << "No\n";
-
-	std::cin >> input_file;
 	return 0;
 }
+
