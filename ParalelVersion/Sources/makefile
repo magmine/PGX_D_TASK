@@ -9,13 +9,13 @@ INCLUDES=../Headers
 all: $(NAME) clean
 
 $(NAME): $(SRCS) ../Headers/*.h
-        @g++ -std=c++11 -I$(INCLUDES) -c $(SRCS)
-        @g++ -std=c++11 *.o -o solution
+	@g++ -std=c++11 -I$(INCLUDES) -c $(SRCS)
+	@g++ -std=c++11 *.o -o solution -pthread
 
 clean:
-        @/bin/rm -f $(OBJECTS)
+	@/bin/rm -f $(OBJECTS)
 
 fclean: clean
-        @/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
