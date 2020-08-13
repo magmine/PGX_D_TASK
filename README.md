@@ -1,5 +1,5 @@
 - To compile (in case you have *make* installed), enter to source directory and simply run `make` or `make solution`.
 - The output file is named *solution*.
-- You can choose your input graph file from `Sources/G*.txt`.
+- You can choose your input graph file from `Input/G*.txt`.
 - The graph file is in the form of (source, destination) per line.
 - I will add Google test in the future but for now you can run `make test` to ruun automaticaly with multiple  input files and manually check corectness.
