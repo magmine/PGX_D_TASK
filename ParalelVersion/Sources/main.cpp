@@ -8,6 +8,7 @@
 
 int main(int argc, char **argv) {
     if (argc != 2) {
+		std::cout<<"Usage: ./solution input_file.txt\n";
         return -1;
     }
 	std::shared_ptr<graph<uint64_t> > gr(new graph<uint64_t>());

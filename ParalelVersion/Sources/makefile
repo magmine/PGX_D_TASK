@@ -1,4 +1,4 @@
-NAME=pgx
+NAME=solution
 
 SRCS= *.cpp
 
@@ -13,10 +13,10 @@ $(NAME): $(SRCS) ../Headers/*.h
 	@g++ -std=c++11 *.o -o $(NAME) -pthread
 
 test: $(NAME)
-	./pgx G1_notFully_notWeakly.txt
-	./pgx G2_notFully_Weakly.txt
-	./pgx G3_fully_weakly.txt
-	./pgx G7_notFully_notWeakly.txt
+	./$(NAME) G1_notFully_notWeakly.txt
+	./$(NAME) G2_notFully_Weakly.txt
+	./$(NAME) G3_fully_weakly.txt
+	./$(NAME) G7_notFully_notWeakly.txt
 
 
 clean:
