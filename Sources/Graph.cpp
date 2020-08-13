@@ -44,7 +44,7 @@ T	graph<T>::get_node_property(uint64_t n) {
 }
 
 template<class T>
-std::string		graph<T>::export_node_property_to_string() {
+std::string graph<T>::export_node_property_to_string() {
 	typename std::map<uint64_t, T>::iterator	it;
 	std::ostringstream							result_string_stream("", std::ios_base::out);
 	
@@ -57,12 +57,12 @@ std::string		graph<T>::export_node_property_to_string() {
 }
 
 template <class T>
-std::vector<uint64_t>::size_type	graph<T>::get_number_of_vertices() {
+std::vector<uint64_t>::size_type graph<T>::get_number_of_vertices() {
 	return adj_list.size();
 }
 
 template <class T>
-std::list<uint64_t>::size_type	graph<T>::get_number_of_exiting_edges_from_source(uint64_t source_pos) {
+std::list<uint64_t>::size_type graph<T>::get_number_of_exiting_edges_from_source(uint64_t source_pos) {
 	try {
 		return adj_list[source_pos].size();
 	}
@@ -74,22 +74,22 @@ std::list<uint64_t>::size_type	graph<T>::get_number_of_exiting_edges_from_source
 
 
 template <class T>
-void		graph<T>::build_undirected_graph(std::vector<std::list<uint64_t>> &adj_list_undirected) {
+void graph<T>::build_undirected_graph(std::vector<std::list<uint64_t>> &adj_list_undirected) {
 	uint64_t	number_of_vertices = adj_list_undirected.size();
 
-	std::vector<std::vector<bool>>	is_processed(number_of_vertices, std::vector<bool>(number_of_vertices, false));
+	std::vector<std::vector<bool>> is_processed(number_of_vertices, std::vector<bool>(number_of_vertices, false));
 	std::map<uint64_t, uint64_t>::iterator it_map = vertex_list_position_map.begin();
-	std::mutex					mtx;
+	std::mutex mtx;
 	std::vector<std::thread> threads_to_join;
 
 
 	for (; it_map != vertex_list_position_map.end(); it_map++) {
 		threads_to_join.push_back(std::thread([it_map, &is_processed, &adj_list_undirected, &mtx, this] {
 			std::list<uint64_t>::iterator it = adj_list[it_map->second].begin();
-			uint64_t	id_source = it_map->first;
+			uint64_t id_source = it_map->first;
 
 			while (it != adj_list[it_map->second].end()) {
-				uint64_t	pos_destination = vertex_list_position_map.find(*it)->second;
+				uint64_t pos_destination = vertex_list_position_map.find(*it)->second;
 				{
 					std::lock_guard<std::mutex> locker(mtx);
 					adj_list_undirected[it_map->second].push_front(*it);
@@ -112,13 +112,13 @@ void		graph<T>::build_undirected_graph(std::vector<std::list<uint64_t>> &adj_lis
 
 template <class T>
 std::set<uint64_t>	graph<T>::bfs_undirected_graph() {
-	std::queue<uint64_t> 			que;
-	std::set<uint64_t> 				visited_vertices_set;
-	uint64_t						number_of_vertices = get_number_of_vertices();
+	std::queue<uint64_t> que;
+	std::set<uint64_t> visited_vertices_set;
+	uint64_t number_of_vertices = get_number_of_vertices();
 	std::vector<std::list<uint64_t>> adj_list_undirected(number_of_vertices);
-	uint64_t 						vertex = vertex_list_position_map.begin()->first;
-	std::mutex						mtx;
-	std::vector<std::thread> 		threads_to_join;
+	uint64_t vertex = vertex_list_position_map.begin()->first;
+	std::mutex mtx;
+	std::vector<std::thread> threads_to_join;
 
 	build_undirected_graph(adj_list_undirected);
 	visited_vertices_set.insert(vertex);

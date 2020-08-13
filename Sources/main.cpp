@@ -12,9 +12,9 @@ int main(int argc, char **argv) {
         return -1;
     }
 	std::shared_ptr<graph<uint64_t> > gr(new graph<uint64_t>());
-	graph_loader 		gr_loader;
-	graph_algorithms 	gr_algorithms;
-	std::string 		input_file(argv[1]);
+	graph_loader gr_loader;
+	graph_algorithms gr_algorithms;
+	std::string input_file(argv[1]);
 	//std::ifstream 	value_in("G1_value_in.txt");
 	
 	gr_loader.template load_graph<uint64_t>(gr, input_file);
