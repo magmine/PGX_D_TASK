@@ -127,20 +127,19 @@ std::set<uint64_t>	graph<T>::bfs_undirected_graph() {
 	while (!que.empty()) {
 		
 		threads_to_join.push_back(std::thread([&, vertex, this]() mutable {
-			if (!que.empty()){
-                {
-                    std::lock_guard<std::mutex> locked(mtx);
-                    vertex = que.front();
-                    que.pop();
-                }
+			if (!que.empty()) {
+				std::unique_lock<std::mutex> lck(mtx);
+				vertex = que.front();
+				que.pop();
+				lck.unlock();
 				uint64_t vertex_pos = vertex_list_position_map.find(vertex)->second;
                 std::list<uint64_t>::iterator it = adj_list_undirected[vertex_pos].begin();
 				do {
-                    //lock contention ?
-                    std::lock_guard<std::mutex> locked(mtx);
+					lck.lock();
                     if (visited_vertices_set.insert(*it).second) {
 						que.push(*it);
                     }
+					lck.unlock();
 				} while (++it != adj_list_undirected[vertex_pos].end());
 			}
 		}));
@@ -151,7 +150,7 @@ std::set<uint64_t>	graph<T>::bfs_undirected_graph() {
                 t.join();
             }
 		});
-	return (visited_vertices_set);
+	return visited_vertices_set;
 }
 
 template <class T>
