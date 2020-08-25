@@ -1,6 +1,6 @@
 TARGET   := solution
 CXX      := g++ -std=c++11
-CXXFLAGS := -pedantic-errors -Wall -Wextra -Werror
+CXXFLAGS := -pedantic-errors -Wall -Wextra -Werror -Wshadow -Wnon-virtual-dtor
 LDLIBS   := -pthread
 BUILD    := ./build
 OBJ_DIR  := $(BUILD)/objects

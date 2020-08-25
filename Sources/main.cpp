@@ -28,6 +28,11 @@ int main(int argc, char** argv) {
 	std::cout << "Exporting graph properties to string:\n\n";
 	std::cout << gr->export_node_property_to_string()<<"***********\n";*/
 
+	/*
+		There is a bug somwhere due to multithreading, G2 input graph gives me different results
+		each time I run it
+	*/
+
 	std::cout << "\nis fully connected ?\n";
 	if (gr_algorithms.is_fully_connected(gr))
 		std::cout << "Yes\n";
