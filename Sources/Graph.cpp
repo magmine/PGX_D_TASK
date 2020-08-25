@@ -3,7 +3,7 @@
 template <class T>
 void graph<T>::add_edge(uint64_t source, uint64_t destination) {
 	if (graph_vertices_set.find(source) == graph_vertices_set.end()) {
-		adj_list.push_back(std::list<uint64_t>());
+		adj_list.emplace_back(std::list<uint64_t>());
 		adj_list[graph_vertices_set.size()].push_front(destination);
 		graph_vertices_set.insert(source);
 		vertex_list_position_map.emplace(source, graph_vertices_set.size() - 1);
@@ -12,7 +12,7 @@ void graph<T>::add_edge(uint64_t source, uint64_t destination) {
 	}
 
 	if (graph_vertices_set.find(destination) == graph_vertices_set.end()) {
-		adj_list.push_back(std::list<uint64_t>());
+		adj_list.emplace_back(std::list<uint64_t>());
 		graph_vertices_set.insert(destination);
 		vertex_list_position_map.emplace(destination, graph_vertices_set.size() - 1);
 	}
@@ -79,7 +79,7 @@ void graph<T>::build_undirected_graph(std::vector<std::list<uint64_t>>& adj_list
 	std::vector<std::thread> threads_to_join;
 
 	for (; it_map != vertex_list_position_map.end(); it_map++) {
-		threads_to_join.push_back(std::thread([it_map, &is_processed, &adj_list_undirected, &mtx, this] {
+		threads_to_join.emplace_back(std::thread([it_map, &is_processed, &adj_list_undirected, &mtx, this] {
 			std::list<uint64_t>::iterator it = adj_list[it_map->second].begin();
 			uint64_t id_source = it_map->first;
 
@@ -122,7 +122,7 @@ std::set<uint64_t> graph<T>::bfs_undirected_graph() {
 
 	while (!que.empty()) {
 
-		threads_to_join.push_back(std::thread([&, vertex, this]() mutable {
+		threads_to_join.emplace_back(std::thread([&, vertex, this]() mutable {
 			if (!que.empty()) {
 				std::unique_lock<std::mutex> lck(mtx);
 				vertex = que.front();
