@@ -1,5 +1,4 @@
 #include "Graph.h"
-//#include "Node_Property.h"
 
 template <class T>
 void graph<T>::add_edge(uint64_t source, uint64_t destination) {
