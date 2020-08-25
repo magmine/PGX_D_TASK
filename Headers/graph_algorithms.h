@@ -5,22 +5,21 @@
 
 class graph_algorithms {
 public:
-	template<typename T>
-	bool is_weakly_connected(std::shared_ptr<graph<T>> g);// : Returns true if the given graph g is weakly connected
-	
-	template<typename T>
-	bool is_fully_connected(std::shared_ptr<graph<T>> g);//Returns true if for every vertex vand w there isadirected edge from v to w
+	template <typename T>
+	bool is_weakly_connected(std::shared_ptr<graph<T>> g); // : Returns true if the given graph g is weakly connected
+
+	template <typename T>
+	bool is_fully_connected(std::shared_ptr<graph<T>> g); //Returns true if for every vertex vand w there isadirected edge from v to w
 };
 
-template<typename T>
+template <typename T>
 bool graph_algorithms::is_weakly_connected(std::shared_ptr<graph<T>> g) {
 	if (is_fully_connected(g))
 		return true;
 	return g->check_weakly_connected();
 }
 
-
-template<typename T>
+template <typename T>
 bool graph_algorithms::is_fully_connected(std::shared_ptr<graph<T>> g) {
 	std::vector<uint64_t>::size_type number_of_vertices = g->get_number_of_vertices();
 	std::list<uint64_t>::size_type number_of_edges = 0;

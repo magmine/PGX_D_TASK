@@ -36,7 +36,7 @@ release: all
 tests: LDLIBS += /home/mmaghous/software/Cpp/libs/googletest/googletest/lib/libgtest.a
 tests: INCLUDES += -I/home/mmaghous/software/Cpp/libs/googletest/googletest/include/
 tests: all
-	
+
 
 clean:
 	-@rm -rvf $(OBJ_DIR)/*
