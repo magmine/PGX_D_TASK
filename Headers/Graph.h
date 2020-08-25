@@ -28,7 +28,7 @@ public:
 	void remove_edge(uint64_t source, uint64_t destination);
 	void set_node_property(uint64_t n, T val);
 	T get_node_property(uint64_t n) const;
-	std::string export_node_property_to_string();
+	std::string export_node_property_to_string() const;
 
 	//additional methods
 	std::vector<uint64_t>::size_type get_number_of_vertices() const;
