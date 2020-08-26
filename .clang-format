@@ -19,7 +19,7 @@ BreakBeforeTernaryOperators: false
 BreakConstructorInitializers: AfterColon
 BreakInheritanceList: AfterColon
 BreakStringLiterals: false
-ColumnLimit: 0
+ColumnLimit: 120
 CompactNamespaces: false
 FixNamespaceComments: false
 ContinuationIndentWidth: 4

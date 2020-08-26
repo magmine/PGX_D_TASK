@@ -12,15 +12,16 @@
 #include <sstream>
 #include <string>
 #include <thread>
+#include <unordered_map>
 #include <vector>
 
 template <class T>
 class graph {
 private:
 	std::vector<std::list<uint64_t>> adj_list;
-	std::map<uint64_t, T> property_values_map;
+	std::unordered_map<uint64_t, T> property_values_map;
 	std::set<uint64_t> graph_vertices_set;
-	std::map<uint64_t, uint64_t> vertex_list_position_map;
+	std::unordered_map<uint64_t, uint64_t> vertex_list_position_map;
 
 public:
 	//mandatory methods
