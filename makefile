@@ -11,7 +11,7 @@ INPUT_FILES=Input
 all: $(NAME) clean
 
 $(NAME): $(SRCS) $(INCLUDES)/*.h
-	@g++ -std=c++11 -I$(INCLUDES) -c $(SRCS)
+	@g++ -std=c++11 -I$(INCLUDES) -c $(SRCS) -Wall -Wextra
 	@g++ -std=c++11 $(OBJECTS) -o $(NAME) -pthread
 
 test: $(NAME)
