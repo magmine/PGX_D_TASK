@@ -2,4 +2,4 @@
 - The output file is named *solution*.
 - You can choose your input graph file from `Input/G*.txt`.
 - The graph file is in the form of (source, destination) per line.
-- I will add Google test in the future but for now you can run `make test` to ruun automaticaly with multiple  input files and manually check corectness.
+- I will add Google test in the future but for now you can run `make test` to run automaticaly with multiple  input files and manually check corectness.
