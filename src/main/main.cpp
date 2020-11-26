@@ -1,5 +1,5 @@
-#include "../lib/graph.h"
 #include "../lib/algorithms/graph_algorithms.h"
+#include "../lib/graph.h"
 #include "../lib/loader/graph_loader.h"
 #include <fstream>
 
