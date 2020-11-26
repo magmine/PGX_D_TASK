@@ -4,7 +4,7 @@ cc_binary(
     name = "main",
     srcs = ["main.cpp"],
     deps = [
-        "//src/lib:graphLib",
+        "//src/lib/graph:graphLib",
         "//src/lib/loader:loaderLib",
         "//src/lib/algorithms:algorithmsLib",
     ],

@@ -1,5 +1,6 @@
 #pragma once
-#include "../graph.h"
+#include "../graph/graph.h"
+
 #include <algorithm>
 #include <cstdint>
 #include <forward_list>

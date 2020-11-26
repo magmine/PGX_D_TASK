@@ -4,5 +4,5 @@ cc_library(
     name = "algorithmsLib",
     hdrs = ["graph_algorithms.h"],
     visibility = ["//visibility:public"],
-    deps = ["//src/lib:graphLib"],
+    deps = ["//src/lib/graph:graphLib"],
 )
