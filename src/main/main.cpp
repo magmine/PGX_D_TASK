@@ -1,9 +1,6 @@
-#include "Graph.cpp"
-#include "Graph.h"
-#include "graph_algorithms.cpp"
-#include "graph_algorithms.h"
-#include "graph_loader.cpp"
-#include "graph_loader.h"
+#include "../lib/algorithms/graph_algorithms.h"
+#include "../lib/graph.h"
+#include "../lib/loader/graph_loader.h"
 #include <fstream>
 
 int main(int argc, char** argv) {
