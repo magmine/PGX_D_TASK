@@ -1,6 +1,3 @@
-<<<<<<< HEAD:Sources/Graph.cpp
-#include "Graph.h"
-=======
 #pragma once
 #include <algorithm>
 #include <cstdint>
@@ -31,7 +28,7 @@ public:
 	void remove_edge(uint64_t source, uint64_t destination);
 	void set_node_property(uint64_t n, T val);
 	T get_node_property(uint64_t n) const;
-	std::string export_node_property_to_string();
+	std::string export_node_property_to_string() const;
 
 	//additional methods
 	std::vector<uint64_t>::size_type get_number_of_vertices() const;
@@ -42,7 +39,6 @@ private:
 	void build_undirected_graph(std::vector<std::list<uint64_t>>& adj_list_undirected);
 	std::set<uint64_t> bfs_undirected_graph();
 };
->>>>>>> bazel-build:src/lib/graph.h
 
 template <class T>
 void graph<T>::add_edge(uint64_t source, uint64_t destination) {
