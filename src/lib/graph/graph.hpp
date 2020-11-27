@@ -26,6 +26,7 @@ public:
 	//mandatory methods
 	void add_edge(uint64_t source, uint64_t destination);
 	void remove_edge(uint64_t source, uint64_t destination);
+	void clear();
 	void set_node_property(uint64_t n, T val);
 	T get_node_property(uint64_t n) const;
 	std::string export_node_property_to_string() const;
@@ -39,6 +40,18 @@ private:
 	void build_undirected_graph(std::vector<std::list<uint64_t>>& adj_list_undirected);
 	std::set<uint64_t> bfs_undirected_graph();
 };
+
+template <class T>
+void graph<T>::clear() {
+	adj_list.clear();
+	property_values_map.clear();
+	graph_vertices_set.clear();
+	vertex_list_position_map.clear();
+	assert(adj_list.size() == 0);
+	assert(property_values_map.size() == 0);
+	assert(graph_vertices_set.size() == 0);
+	assert(vertex_list_position_map.size() == 0);
+}
 
 template <class T>
 void graph<T>::add_edge(uint64_t source, uint64_t destination) {

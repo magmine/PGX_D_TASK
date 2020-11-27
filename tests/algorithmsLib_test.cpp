@@ -7,11 +7,47 @@
 TEST(algorithmsLib_test, is_weakly_connected) {
 	graph_loader gr_loader;
 	graph_algorithms gr_algorithms;
-	//std::shared_ptr<graph<uint64_t>> gr = std::make_shared<graph<uint64_t>>();
-	std::shared_ptr<graph<uint64_t>> gr(new graph<uint64_t>());
-	std::string input_file("resources/tests/input_graphs/graph_topology/G1_notFully_notWeakly.txt");
-	gr_loader.template load_graph<uint64_t>(gr, input_file);
+	std::shared_ptr<graph<uint64_t>> gr = std::make_shared<graph<uint64_t>>();
+	std::string path_input_files("/home/mmaghous/coding/graph_processor/resources/tests/input_graphs/graph_topology/");
 
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G1_notFully_notWeakly.txt");
 	EXPECT_EQ(7, gr->get_number_of_vertices());
-	EXPECT_FALSE(gr_algorithms.is_weakly_connected(gr));
+	EXPECT_FALSE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_FALSE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
+
+	gr->clear();
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G2_notFully_Weakly.txt");
+	EXPECT_EQ(7, gr->get_number_of_vertices());
+	EXPECT_FALSE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_TRUE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
+
+	gr->clear();
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G3_fully_weakly.txt");
+	EXPECT_EQ(2, gr->get_number_of_vertices());
+	EXPECT_TRUE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_TRUE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
+
+	gr->clear();
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G4_fully_weakly.txt");
+	EXPECT_EQ(7, gr->get_number_of_vertices());
+	EXPECT_TRUE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_TRUE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
+
+	gr->clear();
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G5_notFully_weakly.txt");
+	EXPECT_EQ(4, gr->get_number_of_vertices());
+	EXPECT_FALSE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_TRUE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
+
+	gr->clear();
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G6_notFully_weakly.txt");
+	EXPECT_EQ(7, gr->get_number_of_vertices());
+	EXPECT_FALSE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_TRUE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
+
+	gr->clear();
+	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G7_notFully_notWeakly.txt");
+	EXPECT_EQ(8, gr->get_number_of_vertices());
+	EXPECT_FALSE(gr_algorithms.template is_fully_connected<uint64_t>(gr));
+	EXPECT_FALSE(gr_algorithms.template is_weakly_connected<uint64_t>(gr));
 }
