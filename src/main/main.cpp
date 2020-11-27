@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
 		std::cout << "Usage: ./solution input_file.txt\n";
 		return -1;
 	}
-	std::shared_ptr<graph<uint64_t>> gr(new graph<uint64_t>());
+	std::shared_ptr<graph<uint64_t>> gr = std::make_shared<graph<uint64_t>>();
 	graph_loader gr_loader;
 	graph_algorithms gr_algorithms;
 	std::string input_file(argv[1]);
