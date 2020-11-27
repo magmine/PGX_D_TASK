@@ -1,5 +1,5 @@
 #pragma once
-#include "../graph/graph.h"
+#include "../graph/graph.hpp"
 
 #include <algorithm>
 #include <cstdint>

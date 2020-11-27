@@ -1,5 +1,5 @@
 #pragma once
-#include "../graph/graph.h"
+#include "src/lib/graph/graph.hpp"
 
 class graph_algorithms {
 public:

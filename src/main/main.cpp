@@ -1,8 +1,8 @@
 #include <fstream>
 
-#include "../lib/algorithms/graph_algorithms.h"
-#include "../lib/graph/graph.h"
-#include "../lib/loader/graph_loader.h"
+#include "src/lib/algorithms/graph_algorithms.hpp"
+#include "src/lib/graph/graph.hpp"
+#include "src/lib/loader/graph_loader.hpp"
 
 int main(int argc, char** argv) {
 	if (argc != 2) {
