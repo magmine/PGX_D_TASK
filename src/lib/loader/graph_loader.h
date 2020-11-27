@@ -34,5 +34,10 @@ void graph_loader::load_graph(std::shared_ptr<graph<T>> g, std::string file_path
 				g->add_edge(source, destination);
 			}
 		}
+	} else {
+		std::cerr<<"=======================================\n";
+		std::cerr<<"Can't open file "<<file_path<<"\n";
+		std::cerr<<"=======================================\n";
 	}
+	in_stream.close();
 }

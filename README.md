@@ -1,5 +1,5 @@
-- To compile (in case you have *make* installed), enter to source directory and simply run `make` or `make solution`.
-- The output file is named *solution*.
-- You can choose your input graph file from `Input/G*.txt`.
-- The graph file is in the form of (source, destination) per line.
-- I will add Google test in the future but for now you can run `make test` to run automaticaly with multiple  input files and manually check corectness.
+- To run the main program:
+`bazel run //src/main:main -- /.../resources/tests/input_graphs/graph_topology/G*.txt`
+- To run the tests:
+`bazel run //tests:target_name`
+where target_name can be found in the BUILD file under *tests* directory.
