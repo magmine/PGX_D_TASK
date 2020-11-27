@@ -1,8 +1,8 @@
 #include <string>
 
 #include "gtest/gtest.h"
-#include "src/lib/loader/graph_loader.h"
-#include "src/lib/algorithms/graph_algorithms.h"
+#include "src/lib/loader/graph_loader.hpp"
+#include "src/lib/algorithms/graph_algorithms.hpp"
 
 TEST(algorithmsLib_test, is_weakly_connected) {
 	graph_loader gr_loader;

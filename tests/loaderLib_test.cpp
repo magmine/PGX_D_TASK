@@ -1,7 +1,7 @@
 #include <string>
 
 #include "gtest/gtest.h"
-#include "src/lib/loader/graph_loader.h"
+#include "src/lib/loader/graph_loader.hpp"
 
 TEST(loaderLib_test, load_simple_graph) {
 	std::shared_ptr<graph<uint64_t>> gr = std::make_shared<graph<uint64_t>>();
