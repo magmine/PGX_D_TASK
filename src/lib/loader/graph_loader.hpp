@@ -16,11 +16,11 @@
 class graph_loader {
 public:
 	template <class T>
-	void load_graph(std::shared_ptr<graph<T>> g, std::string file_path);
+	void load_graph(std::shared_ptr<graph<T>> g, const std::string file_path);
 };
 
 template <class T>
-void graph_loader::load_graph(std::shared_ptr<graph<T>> g, std::string file_path) {
+void graph_loader::load_graph(std::shared_ptr<graph<T>> g, const std::string file_path) {
 	std::ifstream in_stream(file_path);
 
 	if (in_stream.is_open()) {

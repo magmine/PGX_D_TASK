@@ -4,11 +4,11 @@
 #include "src/lib/loader/graph_loader.hpp"
 #include "src/lib/algorithms/graph_algorithms.hpp"
 
-TEST(algorithmsLib_test, is_weakly_connected) {
+TEST(algorithmsLib_test, check_connectivity) {
 	graph_loader gr_loader;
 	graph_algorithms gr_algorithms;
 	std::shared_ptr<graph<uint64_t>> gr = std::make_shared<graph<uint64_t>>();
-	std::string path_input_files("/home/mmaghous/coding/graph_processor/resources/tests/input_graphs/graph_topology/");
+	std::string path_input_files("resources/tests/input_graphs/graph_topology/");
 
 	gr_loader.template load_graph<uint64_t>(gr, path_input_files + "G1_notFully_notWeakly.txt");
 	EXPECT_EQ(7, gr->get_number_of_vertices());

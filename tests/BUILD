@@ -8,6 +8,7 @@ cc_test(
         "//src/lib/loader:loaderLib",
         "@com_google_googletest//:gtest_main",
     ],
+    data = ["//resources"],
 )
 
 cc_test(
@@ -26,4 +27,5 @@ cc_test(
         "//src/lib/loader:loaderLib",
         "@com_google_googletest//:gtest_main",
     ],
+    data = ["//resources"],
 )
